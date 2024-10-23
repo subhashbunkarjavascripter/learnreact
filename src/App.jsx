@@ -1,37 +1,21 @@
 "use client"
-import {Router,NavLink, Routes,Route, Link } from'react-router-dom'
+import {Router,NavLink,  Routes,Route, Link } from'react-router-dom'
 import React from 'react'
-import User from './components/user'
-import Product from './components/product'
-import Cart from './components/cart'
-import Home from './components/home'
-
-const App = () => {
-
-  return (
-    <>
-     <nav className='flex justify-center gap-9 text-black font-bold bg-slate-400 p-5'>
-       
-         
-          
-
-        <NavLink className={(e) => (e.isActive ? "text-red-600 underline":""  )} to='/'>Home</NavLink> 
-        <NavLink className={(e) => (e.isActive ? "text-red-600 underline":""  )} to='/product'>Product</NavLink> 
-        <NavLink  className={(e) => (e.isActive ? "text-red-600 underline":"" )} to='/user'>User</NavLink> 
-        <NavLink className={(e) => (e.isActive ? "text-blue-900 underline": "")} to='/carts'>Carts</NavLink> 
+import { useSelector } from 'react-redux'
 
 
+const App = () => { 
+ 
+  return ( 
+    <> 
+     <nav className='w-5/6 flex justify-center p-4 mx-auto bg-zinc-300 mt-4'>
+      <h1 className='font-semibold text-3xl text-black'>Home</h1>
      </nav>
-
-
-     <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/user" element={<User />} />
-        <Route path="/product" element={<Product />} />
-        <Route path="/carts" element={<Cart />} />
-      </Routes>
     </>
   )
+
+  const data = useSelector((state) => state);
+  console.log(data)
 }
 
 export default App
